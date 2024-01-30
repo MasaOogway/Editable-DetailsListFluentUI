@@ -1,7 +1,7 @@
 {
   "name": "editable-detailslist-fluentui",
   "private": false,
-  "version": "1.0.2-PROD",
+  "version": "1.0.3-PROD",
   "description": "Wrapper over the existing DetailsList that makes in-place editability work like a dream(among many other new features)",
   "license": "MIT",
   "contributors": [
@@ -81,7 +81,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Scorpius-Dev/Editable-DetailsListFluentUI.git",
-    "directory": "Source/lib"
+    "directory": "Source/libs"
   },
   "bugs": {
     "url": "https://github.com/Scorpius-Dev/Editable-DetailsListFluentUI/issues"
