@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FilterCallout > should render Callout component with correct props 1`] = `
+<div>
+  <span
+    class="ms-layer"
+  />
+</div>
+`;

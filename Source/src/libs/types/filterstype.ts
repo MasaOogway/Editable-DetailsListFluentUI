@@ -1,0 +1,131 @@
+import { IColumnConfig } from './columnconfigtype';
+
+export interface IOperators {
+  type: string;
+  value: string[];
+}
+
+export interface IFilter {
+  column: IColumnConfig;
+  operator: string;
+  value: any;
+}
+
+export const operatorsArr: IOperators[] = [
+  {
+    type: 'string',
+    value: ['equals', 'contains', 'starts with', 'ends with', 'not equal to']
+  },
+  {
+    type: 'number',
+    value: ['>', '<', '>=', '<=', '=', '!=']
+  },
+  {
+    type: 'boolean',
+    value: ['True', 'False']
+  }
+];
+
+export const operatorEval1 = {
+  equals: (a: string, b: string): boolean => {
+    return a == b;
+  },
+  contains: (a: string, b: string): boolean => {
+    return a.indexOf(b) >= 0;
+  },
+  'starts with': (a: string, b: string): boolean => {
+    return a.startsWith(b);
+  },
+  'ends with': (a: string, b: string): boolean => {
+    return a.endsWith(b);
+  },
+  'not equal to': (a: string, b: string): boolean => {
+    return a != b;
+  },
+  '>': (a: number, b: number): boolean => {
+    return a > b;
+  },
+  '<': (a: number, b: number): boolean => {
+    return a < b;
+  },
+  '>=': (a: number, b: number): boolean => {
+    return a >= b;
+  },
+  '<=': (a: number, b: number): boolean => {
+    return a <= b;
+  },
+  '=': (a: number, b: number): boolean => {
+    return a == b;
+  },
+  '!=': (a: number, b: number): boolean => {
+    return a != b;
+  }
+};
+
+export const numberOperatorEval = (var1: number, var2: number, operator: string): boolean => {
+  switch (operator) {
+    case '>':
+      return var1 > var2;
+    case '<':
+      return var1 < var2;
+    case '>=':
+      return var1 >= var2;
+    case '<=':
+      return var1 <= var2;
+    case '=':
+      return var1 == var2;
+    case '!=':
+      return var1 != var2;
+    default:
+      return false;
+  }
+};
+
+export const dateOperatorEval = (var1: Date, var2: Date, operator: string): boolean => {
+  switch (operator) {
+    case '>':
+      return var1 > var2;
+    case '<':
+      return var1 < var2;
+    case '>=':
+      return var1 >= var2;
+    case '<=':
+      return var1 <= var2;
+    case '=':
+      return var1 == var2;
+    case '!=':
+      return var1 != var2;
+    default:
+      return false;
+  }
+};
+
+export const stringOperatorEval = (var1: string, var2: string, operator: string): boolean => {
+  switch (operator) {
+    case 'equals':
+      return var1?.toLowerCase() == var2?.toLowerCase();
+    case 'contains':
+      return var1?.toLowerCase().indexOf(var2?.toLowerCase()) >= 0;
+    case 'starts with':
+      return var1?.toLowerCase().startsWith(var2?.toLowerCase());
+    case 'ends with':
+      return var1?.toLowerCase().endsWith(var2?.toLowerCase());
+    case 'not equal to':
+      return var1?.toLowerCase() != var2?.toLowerCase();
+    default:
+      return false;
+  }
+};
+
+export const booleanOperatorEval = (var1: string, var2: string, operator: string): boolean => {
+  if (var1 && var2)
+    switch (operator) {
+      case '=':
+        return var1?.toLowerCase() == var2?.toLowerCase();
+      default:
+        return false;
+    }
+  else {
+    return false;
+  }
+};
